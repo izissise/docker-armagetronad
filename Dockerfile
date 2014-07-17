@@ -25,9 +25,9 @@ RUN ./install.sh
 RUN rm -f /install.sh
 
 ADD build/server /home/armagetronad/
-RUN chown armagetronad:armagetronad /home/armagetronad/ -R
 
 RUN mv /home/armagetronad/armagetronad/bin /home/armagetronad/bin
 RUN rm -rf /home/armagetronad/armagetronad
+RUN chown armagetronad:armagetronad -R /home/armagetronad/
 
 CMD ["./run.sh"]
