@@ -3,7 +3,9 @@
 A nice and easy way to get a Armagetronad server up and running using docker. For
 help on getting started with docker see the [official getting started guide][0].
 For more information on Armagetronad and check out it's [website][1].
+You can simply take the image from the official repository with:
 
+    docker.io pull izissise/armagetronad-0.2.9-sty-ct-ap
 
 ## Building docker-armagetronad
 
@@ -12,7 +14,7 @@ docker-armagetronad and Armagetronad-0.2.9-sty+ct+ap itself.
 
     git clone https://github.com/izissise/docker-armagetronad
     cd docker-armagetronad
-    sudo docker.io build -t izissise/armagetronad-0.2.9-sty-ct-ap .
+    docker.io build -t izissise/armagetronad-0.2.9-sty-ct-ap .
 
 
 ## Running docker-armagetronad
@@ -32,15 +34,15 @@ settings_custom.cfg
 `
 You need TRUST_LAN 1
 
-    docker run -d -p 4534:4534/udp -v="/mnt/armagetronad:/home/armagetronad/settings/settings" --name="armagetronad" izissise/armagetronad-0.2.9-sty-ct-ap
+    docker.io run -d -p 4534:4534/udp -v="/mnt/armagetronad:/home/armagetronad/settings/settings" --name="armagetronad" izissise/armagetronad-0.2.9-sty-ct-ap
 
 From now on when you start/stop docker-armagetronad you should use the container id
 with the following commands. To get your container id, after you initial run
 type `sudo docker.io ps` and it will show up on the left side followed by the
 image name which is `izissise/armagetronad-0.2.9-sty-ct-ap:latest`.
 
-    sudo docker.io start <container_id>
-    sudo docker.io stop <container_id>
+    docker.io start <container_id>
+    docker.io stop <container_id>
 
 ### Notes on the run command
 
