@@ -5,7 +5,7 @@ help on getting started with docker see the [official getting started guide][0].
 For more information on Armagetronad and check out it's [website][1].
 You can simply take the image from the official repository with:
 
-    docker.io pull izissise/armagetronad-0.2.9-sty-ct-ap
+    docker pull izissise/armagetronad
 
 ## Building docker-armagetronad
 
@@ -14,7 +14,7 @@ docker-armagetronad and Armagetronad-0.2.9-sty+ct+ap itself.
 
     git clone https://github.com/izissise/docker-armagetronad
     cd docker-armagetronad
-    docker.io build -t izissise/armagetronad-0.2.9-sty-ct-ap .
+    docker build -t izissise/armagetronad .
 
 
 ## Running docker-armagetronad
@@ -34,20 +34,20 @@ settings_custom.cfg
 `
 You need TRUST_LAN 1
 
-    docker.io run -d -p 4534:4534/udp -v="/mnt/armagetronad:/home/armagetronad/settings/settings" --name="armagetronad" izissise/armagetronad-0.2.9-sty-ct-ap
+    docker run -d -p 4534:4534/udp -v "/mnt/armagetronad:/home/armagetronad/settings/settings" --name="armagetronad" izissise/armagetronad
 
 From now on when you start/stop docker-armagetronad you should use the container id
 with the following commands. To get your container id, after you initial run
-type `sudo docker.io ps` and it will show up on the left side followed by the
-image name which is `izissise/armagetronad-0.2.9-sty-ct-ap:latest`.
+type `sudo docker ps` and it will show up on the left side followed by the
+image name which is `izissise/armagetronad:latest`.
 
-    docker.io start <container_id>
-    docker.io stop <container_id>
+    docker start <container_id>
+    docker stop <container_id>
 
 ### Notes on the run command
 
  + `-v` is the volume you are mounting `-v=host_dir:docker_dir`
- + `izissise/armagetronad-0.2.9-sty-ct-ap` is simply what I called my docker build of this image
+ + `izissise/armagetronad` is simply what I called my docker build of this image
  + `-d=true` allows this to run cleanly as a daemon, remove for debugging
  + `-p` is the port it connects to, `-p=host_port:docker_port`
 
